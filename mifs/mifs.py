@@ -11,7 +11,7 @@ from sklearn.utils import check_X_y
 from sklearn.preprocessing import StandardScaler
 from multiprocessing import cpu_count
 from sklearn.base import BaseEstimator
-from sklearn.feature_selection.base import SelectorMixin
+from sklearn.feature_selection._base import SelectorMixin
 import bottleneck as bn
 from . import mi
 
@@ -189,7 +189,7 @@ class MutualInformationFeatureSelector(BaseEstimator, SelectorMixin):
         # ---------------------------------------------------------------------
         if self.n_features == 'auto': n_features = np.inf
         else: n_features = self.n_features
-         
+
         while len(S) < n_features:
             # loop through the remaining unselected features and calculate MI
             s = len(S) - 1
